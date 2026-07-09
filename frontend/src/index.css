@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root{
+--ink:#12182B;
+--ink-soft:#4B5468;
+--paper:#F3F5F3;
+--paper-raised:#FFFFFF;
+--line:#E1E4E0;
+--teal:#0E7C74;
+--teal-deep:#0A5F59;
+--teal-tint:#E3F1EF;
+--amber:#C8890A;
+--amber-tint:#FBF0DD;
+--coral:#D64B34;
+--coral-tint:#FBE7E2;
+--shadow: 0 1px 2px rgba(18,24,43,0.04), 0 8px 24px -12px rgba(18,24,43,0.12);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+background:var(--paper);
+color:var(--ink);
+font-family:'Inter',sans-serif;
+-webkit-font-smoothing:antialiased;
+}
+#root{min-height:100vh;}
+h1,h2,h3,.font-display{font-family:'Sora',sans-serif;}
+.mono{font-family:'JetBrains Mono',monospace;}
+::selection{background:var(--teal-tint);}
+button{font-family:inherit;cursor:pointer;}
+input,select,textarea{font-family:inherit;}
+.scrollbar-thin::-webkit-scrollbar{width:6px;height:6px;}
+.scrollbar-thin::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px;}
+
+@keyframes spin{to{transform:rotate(360deg);}}
+.spinner{animation:spin 0.8s linear infinite;}
+
+@keyframes riseIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.rise-in{animation:riseIn 0.32s ease both;}
+
+@keyframes popIn{from{opacity:0;transform:scale(0.96) translateY(8px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.pop-in{animation:popIn 0.22s cubic-bezier(.2,.8,.2,1) both;}
+
+@keyframes toastIn{from{opacity:0;transform:translateX(20px);}to{opacity:1;transform:translateX(0);}}
+.toast-in{animation:toastIn 0.25s ease both;}
+
+@keyframes pulseDot{0%,100%{opacity:1;}50%{opacity:0.35;}}
+.pulse-dot{animation:pulseDot 1.3s ease-in-out infinite;}
+
+@keyframes shimmer{0%{background-position:-200px 0;}100%{background-position:200px 0;}}
+.shimmer{background:linear-gradient(90deg,#ECEEEA 0px,#F6F7F5 40px,#ECEEEA 80px);background-size:600px 100%;animation:shimmer 1.4s linear infinite;}
+
+.bar-fill{transition:width 0.6s cubic-bezier(.2,.8,.2,1);}
+
+@media (prefers-reduced-motion: reduce){
+*{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}

@@ -1,0 +1,254 @@
+[
+  {
+    "_id": "66b300000000000000000001",
+    "campaignName": "Welcome Campaign July",
+    "user": "66b100000000000000000001",
+    "templateId": "66b200000000000000000001",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Riya Shah", "phoneNo": "+919900000001" },
+      { "name": "Arjun Mehta", "phoneNo": "+919900000002" },
+      { "name": "Kiran Patel", "phoneNo": "+919900000003" }
+    ],
+    "analytics": { "totalContacts": 3 }
+  },
+  {
+    "_id": "66b300000000000000000002",
+    "campaignName": "OTP Verification",
+    "user": "66b100000000000000000001",
+    "templateId": "66b200000000000000000002",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Nisha", "phoneNo": "+919900000004" },
+      { "name": "Rahul", "phoneNo": "+919900000005" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+
+  {
+    "_id": "66b300000000000000000003",
+    "campaignName": "Profile Completion Drive",
+    "user": "66b100000000000000000002",
+    "templateId": "66b200000000000000000003",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Pooja", "phoneNo": "+919900000006" },
+      { "name": "Vikas", "phoneNo": "+919900000007" },
+      { "name": "Ankit", "phoneNo": "+919900000008" }
+    ],
+    "analytics": { "totalContacts": 3 }
+  },
+  {
+    "_id": "66b300000000000000000004",
+    "campaignName": "Festival Sale",
+    "user": "66b100000000000000000002",
+    "templateId": "66b200000000000000000004",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Deepak", "phoneNo": "+919900000009" },
+      { "name": "Sonal", "phoneNo": "+919900000010" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+
+  {
+    "_id": "66b300000000000000000005",
+    "campaignName": "Referral Push",
+    "user": "66b100000000000000000003",
+    "templateId": "66b200000000000000000005",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Mohit", "phoneNo": "+919900000011" },
+      { "name": "Reena", "phoneNo": "+919900000012" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+  {
+    "_id": "66b300000000000000000006",
+    "campaignName": "Flash Sale Morning",
+    "user": "66b100000000000000000003",
+    "templateId": "66b200000000000000000006",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Ashish", "phoneNo": "+919900000013" },
+      { "name": "Komal", "phoneNo": "+919900000014" },
+      { "name": "Tina", "phoneNo": "+919900000015" }
+    ],
+    "analytics": { "totalContacts": 3 }
+  },
+
+  {
+    "_id": "66b300000000000000000007",
+    "campaignName": "Order Confirmation Batch",
+    "user": "66b100000000000000000004",
+    "templateId": "66b200000000000000000007",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Amit", "phoneNo": "+919900000016" },
+      { "name": "Rakesh", "phoneNo": "+919900000017" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+  {
+    "_id": "66b300000000000000000008",
+    "campaignName": "Payment Success",
+    "user": "66b100000000000000000004",
+    "templateId": "66b200000000000000000008",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Sagar", "phoneNo": "+919900000018" },
+      { "name": "Harsh", "phoneNo": "+919900000019" },
+      { "name": "Jatin", "phoneNo": "+919900000020" }
+    ],
+    "analytics": { "totalContacts": 3 }
+  },
+
+  {
+    "_id": "66b300000000000000000009",
+    "campaignName": "Shipping Notification",
+    "user": "66b100000000000000000005",
+    "templateId": "66b200000000000000000009",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Neeraj", "phoneNo": "+919900000021" },
+      { "name": "Shiv", "phoneNo": "+919900000022" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+  {
+    "_id": "66b30000000000000000000a",
+    "campaignName": "Password Reset",
+    "user": "66b100000000000000000005",
+    "templateId": "66b20000000000000000000a",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Priyansh", "phoneNo": "+919900000023" }
+    ],
+    "analytics": { "totalContacts": 1 }
+  },
+
+  {
+    "_id": "66b30000000000000000000b",
+    "campaignName": "Welcome Batch 2",
+    "user": "66b100000000000000000006",
+    "templateId": "66b200000000000000000001",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Mehul", "phoneNo": "+919900000024" },
+      { "name": "Khushi", "phoneNo": "+919900000025" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+  {
+    "_id": "66b30000000000000000000c",
+    "campaignName": "Festival Blast",
+    "user": "66b100000000000000000006",
+    "templateId": "66b200000000000000000004",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Alok", "phoneNo": "+919900000026" },
+      { "name": "Rohan", "phoneNo": "+919900000027" },
+      { "name": "Snehal", "phoneNo": "+919900000028" }
+    ],
+    "analytics": { "totalContacts": 3 }
+  },
+
+  {
+    "_id": "66b30000000000000000000d",
+    "campaignName": "Referral Campaign",
+    "user": "66b100000000000000000007",
+    "templateId": "66b200000000000000000005",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Nitin", "phoneNo": "+919900000029" },
+      { "name": "Bhavesh", "phoneNo": "+919900000030" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+  {
+    "_id": "66b30000000000000000000e",
+    "campaignName": "Flash Weekend",
+    "user": "66b100000000000000000007",
+    "templateId": "66b200000000000000000006",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Kajal", "phoneNo": "+919900000031" },
+      { "name": "Divya", "phoneNo": "+919900000032" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+
+  {
+    "_id": "66b30000000000000000000f",
+    "campaignName": "Order Updates",
+    "user": "66b100000000000000000008",
+    "templateId": "66b200000000000000000007",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Raj", "phoneNo": "+919900000033" },
+      { "name": "Tarun", "phoneNo": "+919900000034" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+  {
+    "_id": "66b300000000000000000010",
+    "campaignName": "Payment Alerts",
+    "user": "66b100000000000000000008",
+    "templateId": "66b200000000000000000008",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Yash", "phoneNo": "+919900000035" }
+    ],
+    "analytics": { "totalContacts": 1 }
+  },
+
+  {
+    "_id": "66b300000000000000000011",
+    "campaignName": "Shipping Updates",
+    "user": "66b100000000000000000009",
+    "templateId": "66b200000000000000000009",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Mansi", "phoneNo": "+919900000036" },
+      { "name": "Ayesha", "phoneNo": "+919900000037" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+  {
+    "_id": "66b300000000000000000012",
+    "campaignName": "Reset Password Batch",
+    "user": "66b100000000000000000009",
+    "templateId": "66b20000000000000000000a",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Pritam", "phoneNo": "+919900000038" }
+    ],
+    "analytics": { "totalContacts": 1 }
+  },
+
+  {
+    "_id": "66b300000000000000000013",
+    "campaignName": "New User Welcome",
+    "user": "66b10000000000000000000a",
+    "templateId": "66b200000000000000000001",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Manoj", "phoneNo": "+919900000039" },
+      { "name": "Ravi", "phoneNo": "+919900000040" }
+    ],
+    "analytics": { "totalContacts": 2 }
+  },
+  {
+    "_id": "66b300000000000000000014",
+    "campaignName": "Profile Reminder",
+    "user": "66b10000000000000000000a",
+    "templateId": "66b200000000000000000003",
+    "status": "Draft",
+    "contacts": [
+      { "name": "Kishan", "phoneNo": "+919900000041" },
+      { "name": "Nirali", "phoneNo": "+919900000042" },
+      { "name": "Nilesh", "phoneNo": "+919900000043" }
+    ],
+    "analytics": { "totalContacts": 3 }
+  }
+]

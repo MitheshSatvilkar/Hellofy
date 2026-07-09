@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "66b200000000000000000001",
+    "category": "Onboarding",
+    "templateName": "Welcome Message",
+    "message": "Hello {{name}}, welcome to our platform! We're excited to have you with us.",
+    "variables": ["name"]
+  },
+  {
+    "_id": "66b200000000000000000002",
+    "category": "Onboarding",
+    "templateName": "Account Verification",
+    "message": "Hi {{name}}, your verification code is {{otp}}. It is valid for 10 minutes.",
+    "variables": ["name", "otp"]
+  },
+  {
+    "_id": "66b200000000000000000003",
+    "category": "Onboarding",
+    "templateName": "Profile Completion",
+    "message": "Hi {{name}}, complete your profile to unlock all features.",
+    "variables": ["name"]
+  },
+  {
+    "_id": "66b200000000000000000004",
+    "category": "Promotion",
+    "templateName": "Festival Offer",
+    "message": "Hi {{name}}, enjoy {{discount}}% OFF on all products. Offer ends on {{expiryDate}}.",
+    "variables": ["name", "discount", "expiryDate"]
+  },
+  {
+    "_id": "66b200000000000000000005",
+    "category": "Promotion",
+    "templateName": "Referral Bonus",
+    "message": "Invite your friends using code {{referralCode}} and earn ₹{{reward}}.",
+    "variables": ["referralCode", "reward"]
+  },
+  {
+    "_id": "66b200000000000000000006",
+    "category": "Promotion",
+    "templateName": "Flash Sale",
+    "message": "Hurry {{name}}! Flash Sale starts at {{startTime}} with discounts up to {{discount}}%.",
+    "variables": ["name", "startTime", "discount"]
+  },
+  {
+    "_id": "66b200000000000000000007",
+    "category": "Transactional",
+    "templateName": "Order Confirmation",
+    "message": "Hello {{name}}, your order {{orderId}} has been confirmed. Total amount: ₹{{amount}}.",
+    "variables": ["name", "orderId", "amount"]
+  },
+  {
+    "_id": "66b200000000000000000008",
+    "category": "Transactional",
+    "templateName": "Payment Received",
+    "message": "Payment of ₹{{amount}} has been received successfully. Transaction ID: {{transactionId}}.",
+    "variables": ["amount", "transactionId"]
+  },
+  {
+    "_id": "66b200000000000000000009",
+    "category": "Transactional",
+    "templateName": "Order Shipped",
+    "message": "Hi {{name}}, your order {{orderId}} has been shipped. Tracking ID: {{trackingId}}.",
+    "variables": ["name", "orderId", "trackingId"]
+  },
+  {
+    "_id": "66b20000000000000000000a",
+    "category": "Transactional",
+    "templateName": "Password Reset",
+    "message": "Hello {{name}}, use OTP {{otp}} to reset your password. The OTP expires in 10 minutes.",
+    "variables": ["name", "otp"]
+  }
+]

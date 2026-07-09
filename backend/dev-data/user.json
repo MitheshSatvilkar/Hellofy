@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "66b100000000000000000001",
+    "name": "Aarav Sharma",
+    "email": "admin@example.com",
+    "password": "Admin@123",
+    "phone": "+919876543210",
+    "role": "Admin"
+  },
+  {
+    "_id": "66b100000000000000000002",
+    "name": "Priya Patel",
+    "email": "priya.patel@example.com",
+    "password": "Manager@123",
+    "phone": "+919876543211",
+    "role": "Manager"
+  },
+  {
+    "_id": "66b100000000000000000003",
+    "name": "Rahul Verma",
+    "email": "rahul.verma@example.com",
+    "password": "Manager@123",
+    "phone": "+919876543212",
+    "role": "Manager"
+  },
+  {
+    "_id": "66b100000000000000000004",
+    "name": "Sneha Joshi",
+    "email": "sneha.joshi@example.com",
+    "password": "Manager@123",
+    "phone": "+919876543213",
+    "role": "Manager"
+  },
+  {
+    "_id": "66b100000000000000000005",
+    "name": "Vikram Singh",
+    "email": "vikram.singh@example.com",
+    "password": "Manager@123",
+    "phone": "+919876543214",
+    "role": "Manager"
+  },
+  {
+    "_id": "66b100000000000000000006",
+    "name": "Ananya Mehta",
+    "email": "ananya.mehta@example.com",
+    "password": "Manager@123",
+    "phone": "+919876543215",
+    "role": "Manager"
+  },
+  {
+    "_id": "66b100000000000000000007",
+    "name": "Rohan Desai",
+    "email": "rohan.desai@example.com",
+    "password": "Manager@123",
+    "phone": "+919876543216",
+    "role": "Manager"
+  },
+  {
+    "_id": "66b100000000000000000008",
+    "name": "Neha Kapoor",
+    "email": "neha.kapoor@example.com",
+    "password": "Manager@123",
+    "phone": "+919876543217",
+    "role": "Manager"
+  },
+  {
+    "_id": "66b100000000000000000009",
+    "name": "Karan Malhotra",
+    "email": "karan.malhotra@example.com",
+    "password": "Manager@123",
+    "phone": "+919876543218",
+    "role": "Manager"
+  },
+  {
+    "_id": "66b10000000000000000000a",
+    "name": "Isha Nair",
+    "email": "isha.nair@example.com",
+    "password": "Manager@123",
+    "phone": "+919876543219",
+    "role": "Manager"
+  }
+]
