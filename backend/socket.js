@@ -4,63 +4,91 @@ let io;
 const connectedUsers = new Map();
 
 function initializeSocket(server) {
-    try{
-        io = new Server(server, {
-            cors: {
-                origin: process.env.FRONTEND_URL,
-                credentials: true,
-            },
-        });
+  try {
+    const allowedOrigins = [
+      "http://localhost:5173",
+      process.env.FRONTEND_URL,
+    ].filter(Boolean);
 
-        io.on("connection", (socket) => {
-            console.log("Socket Connected:", socket.id);
+    io = new Server(server, {
+      cors: {
+        origin: (origin, callback) => {
+          // Allow Postman or requests with no Origin
+          if (!origin) return callback(null, true);
 
-            // Client sends its userId after connection
-            socket.on("register", (userId) => {
-                connectedUsers.set(userId, socket.id);
-                console.log(`User ${userId} connected with socket ${socket.id}`)
-            });
+          if (allowedOrigins.includes(origin)) {
+            return callback(null, true);
+          }
 
-            socket.on("disconnect", () => {
-                // Remove disconnected user
-                for (const [userId, socketId] of connectedUsers.entries()) {
-                    if (socketId === socket.id) {
-                        connectedUsers.delete(userId);
-                        console.log(`User ${userId} disconnected`);
-                        break;
-                    }
-                }
+          return callback(new Error("Socket.IO CORS: Origin not allowed"));
+        },
+        credentials: true,
+        methods: ["GET", "POST"],
+      },
 
-                console.log("Socket Disconnected:", socket.id);
-            });
+      transports: ["websocket", "polling"],
+    });
 
-        });
+    io.on("connection", (socket) => {
+      console.log(`✅ Socket Connected: ${socket.id}`);
 
-    }
-    catch(err){
-        console.log(err);
-    }
-    
+      // Register User
+      socket.on("register", (userId) => {
+        if (!userId) return;
+
+        connectedUsers.set(userId.toString(), socket.id);
+
+        console.log(
+          `✅ User ${userId} registered with socket ${socket.id}`
+        );
+      });
+
+      // Disconnect
+      socket.on("disconnect", () => {
+        for (const [userId, socketId] of connectedUsers.entries()) {
+          if (socketId === socket.id) {
+            connectedUsers.delete(userId);
+
+            console.log(`❌ User ${userId} disconnected`);
+
+            break;
+          }
+        }
+
+        console.log(`Socket Disconnected: ${socket.id}`);
+      });
+
+      socket.on("error", (err) => {
+        console.error("Socket Error:", err);
+      });
+    });
+  } catch (err) {
+    console.error("Socket Initialization Error:", err);
+  }
 }
 
 const emitToUser = (userId, event, data) => {
-    try{
-        const socketId = connectedUsers.get(userId.toString());
-        if (!socketId) return false;
-        io.to(socketId).emit(event,data);
-        return true;
-    }
-    catch(err){
-        console.log(err);
-    }
-    
-};
+  try {
+    if (!io) return false;
 
+    const socketId = connectedUsers.get(userId.toString());
+    if (!socketId) return false;
+    
+    io.to(socketId).emit(event, data);
+    return true;
+  } 
+  catch (err) {
+    console.error(err);
+    return false;
+  }
+};
 
 const delay = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 };
+
 module.exports = {
-    initializeSocket,
-    emitToUser
+  initializeSocket,
+  emitToUser,
+  delay,
 };
