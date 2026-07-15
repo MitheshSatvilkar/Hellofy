@@ -374,3 +374,6 @@ Ensure:
 # License
 
 This project is intended for educational/development purposes. Update this section with your preferred license if distributing publicly.
+
+https://hellofy-pif7.vercel.app/
+https://hellofy.onrender.com

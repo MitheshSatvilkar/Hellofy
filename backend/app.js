@@ -21,16 +21,22 @@ const allowedOrigins = [
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
+console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
+console.log("allowedOrigins:", allowedOrigins);
+
 app.use(
   cors({
     origin: function (origin, callback) {
+      console.log("Incoming Origin:", origin);
       // Allow Postman or server-to-server requests
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
+        console.log("Origin Allowed");
         return callback(null, true);
       }
 
+      console.log("Origin Blocked");
       return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
