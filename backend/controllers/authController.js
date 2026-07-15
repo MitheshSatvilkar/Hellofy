@@ -18,13 +18,15 @@ const createSendToken = async(user, statusCode, req, res)=>{
     })
 
     //Send JWT Token as Cookie
-    res.cookie('jwt', token, {
+    res.cookie("jwt", token, {
         expires: new Date(
-            Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000 
+            Date.now() +
+            process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
         ),
         httpOnly: true,
-        secure: req.secure || req.headers['x-forwarded-proto'] === "https"
-    })
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+    });
 
     //Send User Details as Response
     res.status(statusCode).json({
