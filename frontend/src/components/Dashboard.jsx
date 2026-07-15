@@ -7,31 +7,20 @@ import CreateCampaignModal from "./CreateCampaignModal";
 import DetailDrawer from "./DetailDrawer";
 import ConfirmDialog from "./ConfirmDialog";
 
+import api from "../api/axios";
+
 import { useMemo } from "react";
-import axios from "axios";
-import {useGlobalContext} from "../Context/GlobalContext"
+import {useGlobalContext} from "../context/GlobalContext"
 
 function uid(prefix) {
   return prefix + '_' + Math.random().toString(36).slice(2, 10);
-}
-function mockContacts(n) {
-  const first = ['Aarav','Vivaan','Aditya','Vihaan','Arjun','Sai','Reyansh','Krishna','Ishaan','Rohan','Ananya','Diya','Saanvi','Aadhya','Myra','Priya','Kavya','Riya','Neha','Sneha'];
-  const last = ['Sharma','Verma','Patel','Gupta','Reddy','Nair','Iyer','Singh','Rao','Menon'];
-  const arr = [];
-  for (let i = 0; i < n; i++) {
-    const fn = first[i % first.length];
-    const ln = last[(i * 7) % last.length];
-    const num = 6000000000 + Math.floor(Math.random() * 999999999);
-    arr.push({ id: uid('ct'), name: `${fn} ${ln}`, phone: '+91' + String(num).slice(0, 10) });
-  }
-  return arr;
 }
 
 const FILTERS = ['All', 'Draft', 'Processing', 'Completed'];
 
 const Dashboard = ()=>{
     const [showCreate, setShowCreate] = useState(false);
-    const { campaigns, setCampaigns,TEMPLATES,setTEMPLATES,user,setUser,socket,connectSocket } = useGlobalContext();
+    const { campaigns, setCampaigns,TEMPLATES,setTEMPLATES,user,socket,connectSocket } = useGlobalContext();
 
     const [query, setQuery] = useState('');
     const [filter, setFilter] = useState('All');
@@ -46,18 +35,11 @@ const Dashboard = ()=>{
 
     const navigate = useNavigate();
 
-    function handleCreate(newCampaign) {
-        setCampaigns(cs => [newCampaign, ...cs]);
-        setShowCreate(false);
-        push(`"${newCampaign.name}" saved as draft.`, 'success');
-    }
     async function confirmDelete() {
         setDeleting(true);
 
-        const url = `http://localhost:3000/api/v1/campaigns/${deleteTarget._id}`;
-        const deleteCampaignResponse = await axios.delete(url,{
-            withCredentials:true
-        });
+        const url = `/campaigns/${deleteTarget._id}`;
+        const deleteCampaignResponse = await api.delete(url);
 
         setTimeout(() => {
             setCampaigns(cs => cs.filter(c => c._id !== deleteTarget._id));
@@ -69,9 +51,7 @@ const Dashboard = ()=>{
     }
     //Send Campaign Processing Request
     async function handleSend(campaignId) {
-        const StartCampaign = await axios.post(`http://localhost:3000/api/v1/campaigns/start/${campaignId}`,{},{
-            withCredentials:true
-        });
+        const StartCampaign = await api.post(`/campaigns/start/${campaignId}`,{});
         try{
             setCampaigns(prev =>
                 prev.map(campaign =>
@@ -85,32 +65,6 @@ const Dashboard = ()=>{
             console.log(err);
         }
 
-        // setSendingIds(s => new Set(s).add(campaignId));
-        // setCampaigns(cs => cs.map(c => c._id === campaignId ? { ...c, status: 'Processing' } : c));
-        // push('Campaign is now processing…', 'info');
-
-        // const t1 = setTimeout(() => {
-        // setCampaigns(cs => cs.map(c => {
-        //     if (c._id !== campaignId) return c;
-        //     const total = c.contacts.length;
-        //     const partialSent = Math.round(total * (0.4 + Math.random() * 0.3));
-        //     return { ...c, analytics: { ...c.analytics, sent: partialSent } };
-        // }));
-        // }, 900);
-
-        // const t2 = setTimeout(() => {
-        // setCampaigns(cs => cs.map(c => {
-        //     if (c._id !== campaignId) return c;
-        //         const total = c.contacts.length;
-        //         const failed = Math.max(0, Math.round(total * (Math.random() * 0.08)));
-        //         const delivered = total - failed;
-        //         return { ...c, status: 'Completed', analytics: { sent: total, delivered, failed } };
-        //     }));
-        //     setSendingIds(s => { const n = new Set(s); n.delete(campaignId); return n; });
-        //     push('Campaign completed.', 'success');
-        // }, 2600);
-
-        // timersRef.current.push(t1, t2);
     }
     function useToasts() {
         const [toasts, setToasts] = useState([]);
@@ -134,12 +88,11 @@ const Dashboard = ()=>{
                     connectSocket(user._id);
                 }
                 //Get Campaign
-                const campaignList = await axios.get("http://localhost:3000/api/v1/campaigns/",{
-                    withCredentials:true
-                });
+                const campaignList = await api.get("/campaigns/");
                 setCampaigns(campaignList.data.data.campaign);  
+
                 //Get Templates
-                const template = await axios.get("http://localhost:3000/api/v1/templates/",{
+                const template = await api.get("/templates/",{
                     withCredentials:true
                 });
                 setTEMPLATES(template.data.data.template);

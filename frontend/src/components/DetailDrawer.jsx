@@ -6,10 +6,6 @@ const DetailDrawer=({ campaign, template, onClose, onSend, sendingIds })=>{
     const isSending = sendingIds.has(campaign.id);
     const a = campaign.analytics;
     const total = campaign.contacts.length;
-
-    useEffect(()=>{
-        console.log(campaign)
-    },[])
     
     const overlayStyle = {
         position: 'fixed', inset: 0, background: 'rgba(18,24,43,0.45)',
@@ -119,7 +115,7 @@ const DetailDrawer=({ campaign, template, onClose, onSend, sendingIds })=>{
                     {campaign.contacts.map(c => (
                         <div key={c.phone} style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 12px', borderBottom: '1px solid var(--line)', fontSize: 12.5 }}>
                         <span style={{ fontWeight: 600 }}>{c.name}</span>
-                        <span className="mono" style={{ color: 'var(--ink-soft)' }}>{c.phoneNo}</span>
+                        <span className="mono" style={{ color: 'var(--ink-soft)' }}>{c.phone}</span>
                         </div>
                     ))}
                     </div>

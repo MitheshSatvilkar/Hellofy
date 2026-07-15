@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState,useRef } from "react";
-import axios from "axios";
 import { io } from "socket.io-client"
+import api from "../api/axios";
 
 const GlobalContext = createContext();
 
@@ -8,9 +8,7 @@ export const GlobalProvider = ({ children }) => {
     const [TEMPLATES,setTEMPLATES] = useState([]);
     const [campaigns, setCampaigns] = useState([]);
     const [socket, setSocket] = useState(null);
-    
     const [user, setUser] = useState(null);
-    
     const socketRef = useRef(null);
 
 
@@ -19,7 +17,7 @@ export const GlobalProvider = ({ children }) => {
         if (socketRef.current) {
             return socketRef.current;
         }
-        socketRef.current = io("http://localhost:3000", {
+        socketRef.current = io(import.meta.env.VITE_BASE_API_URL, {
             auth: { userId }
         });
 
@@ -42,11 +40,9 @@ export const GlobalProvider = ({ children }) => {
     useEffect(()=>{
       (async()=>{
         try{
-          const userDetails = await axios.get("http://localhost:3000/api/v1/users/user",{
-            withCredentials:true
-          });
+          const userDetails = await api.get("/users/user");
           setUser(userDetails.data.data.user);
-          if(userDetails){
+          if(userDetails){  
             await connectSocket(userDetails.data.data.user._id)
           }
           

@@ -1,7 +1,8 @@
-import axios from "axios";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../Context/GlobalContext";
+import { useGlobalContext } from "../context/GlobalContext";
+
+import api from "../api/axios";
 
 const LoginForm =()=>{
     const navigate = useNavigate();
@@ -39,24 +40,31 @@ const LoginForm =()=>{
         }
 
         try{
-            const LoginResponse = await axios.post("http://localhost:3000/api/v1/users/login",{
+            const LoginResponse = await api.post("/users/login",{
                 email,
                 password
-            },{
-                withCredentials: true
             })
             if(LoginResponse.data.status == "success" && LoginResponse.data.data.user){
                 setUser(LoginResponse.data.data.user);
                 connectSocket(LoginResponse.data.data.user._id);
                 navigate("/dashboard")
             }
-            else{
-                alert("Login failed please try after some times")
-            }
             
         }
-        catch(err){
-            console.log(err);
+        catch(error){
+            if (error.response) {
+                if (error.response.status === 401) {
+                    alert("Incorrect Email or Password");
+                } else if (error.response.status === 500) {
+                    alert("Server error. Please try again later.");
+                } else {
+                    alert(error.response.data.message || "Something went wrong.");
+                }
+            } else if (error.request) {
+                alert("Unable to connect to the server.");
+            } else {
+                alert("An unexpected error occurred.");
+            }
         }
     }
 
@@ -222,94 +230,3 @@ const LoginForm =()=>{
 }
 
 export default LoginForm;
-
-//  <form onSubmit={handleSubmit} noValidate className={shake ? 'shake' : ''}>
-//                 <h1 style={{ fontSize: 22, fontWeight: 800, margin: '0 0 6px', letterSpacing: '-0.01em' }}>Welcome back</h1>
-//                 <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', margin: '0 0 26px' }}>
-//                     Sign in to manage your WhatsApp campaigns.
-//                 </p>
- 
-//                 {formError && (
-//                     <div className="fade-up" style={{
-//                     display: 'flex', gap: 9, alignItems: 'flex-start', background: 'var(--coral-tint)', border: '1px solid #F3C4BA',
-//                     color: '#9B3A28', borderRadius: 10, padding: '11px 13px', fontSize: 12.5, lineHeight: 1.45, marginBottom: 18,
-//                     }}>
-//                     <span style={{ fontWeight: 700 }}>⚠</span>
-//                     <span>{formError}</span>
-//                     </div>
-//                 )}
- 
-//                 <div style={{ marginBottom: 16 }}>
-//                     <label style={labelStyle} htmlFor="email">Email</label>
-//                     <input
-//                         id="email"
-//                         ref={emailRef}
-//                         className="field"
-//                         type="email"
-//                         autoComplete="email"
-//                         placeholder="you@company.com"
-//                         value={email}
-//                         onChange={e => { setEmail(e.target.value); if (errors.email) setErrors(er => ({ ...er, email: null })); }}
-//                         style={{ ...inputStyle, borderColor: errors.email ? 'var(--coral)' : 'var(--line)' }}
-//                     />
-//                     {errors.email && <div style={errorStyle}>⚠ {errors.email}</div>}
-//                 </div>
-            
-//                 <div style={{ marginBottom: 10 }}>
-//                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-//                     <label style={{ ...labelStyle, marginBottom: 6 }} htmlFor="password">Password</label>
-//                     <a href="#" onClick={e => e.preventDefault()} style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 600, textDecoration: 'none' }}>
-//                         Forgot password?
-//                     </a>
-//                     </div>
-//                     <div style={{ position: 'relative' }}>
-//                     <input
-//                         id="password"
-//                         className="field"
-//                         type={showPassword ? 'text' : 'password'}
-//                         autoComplete="current-password"
-//                         placeholder="••••••••"
-//                         value={password}
-//                         onChange={e => { setPassword(e.target.value); if (errors.password) setErrors(er => ({ ...er, password: null })); }}
-//                         style={{ ...inputStyle, borderColor: errors.password ? 'var(--coral)' : 'var(--line)', paddingRight: 44 }}
-//                     />
-//                     <button
-//                         type="button"
-//                         onClick={() => setShowPassword(s => !s)}
-//                         aria-label={showPassword ? 'Hide password' : 'Show password'}
-//                         style={{
-//                         position: 'absolute', right: 6, top: '50%', transform: 'translateY(-50%)',
-//                         background: 'none', border: 'none', color: 'var(--ink-soft)', fontSize: 12, fontWeight: 600, padding: '6px 8px',
-//                         }}
-//                     >
-//                         {showPassword ? 'Hide' : 'Show'}
-//                     </button>
-//                     </div>
-//                     {errors.password && <div style={errorStyle}>⚠ {errors.password}</div>}
-//                 </div>
-            
-//                 <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12.5, color: 'var(--ink-soft)', margin: '14px 0 22px', cursor: 'pointer' }}>
-//                     <input type="checkbox" checked={remember} onChange={e => setRemember(e.target.checked)} style={{ width: 15, height: 15, accentColor: 'var(--teal)' }} />
-//                     Keep me signed in on this device
-//                 </label>
-            
-//                 <button type="submit" disabled={submitting} style={btnPrimary}>
-//                     {submitting ? <><Spinner size={14} color="#fff" /> Signing in…</> : 'Sign in'}
-//                 </button>
-            
-//                 <button
-//                     type="button"
-//                     onClick={fillDemo}
-//                     style={{
-//                     width: '100%', marginTop: 10, background: 'transparent', border: '1px dashed var(--line)',
-//                     borderRadius: 9, padding: '9px 14px', fontSize: 12, color: 'var(--ink-soft)', fontWeight: 600,
-//                     }}
-//                 >
-//                     Use demo credentials
-//                 </button>
-            
-//                 <p style={{ textAlign: 'center', fontSize: 12.5, color: 'var(--ink-soft)', marginTop: 22 }}>
-//                     Don't have an account? <a href="#" onClick={e => e.preventDefault()} style={{ color: 'var(--teal)', fontWeight: 700, textDecoration: 'none' }}>Request access</a>
-//                 </p>
-//             </form> 
-

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { useGlobalContext } from "../Context/GlobalContext";
+import { useGlobalContext } from "../context/GlobalContext";
+
+import api from "../api/axios";
 
 const CreateCampaignModal = ({ onClose, existingNames }) => {
   const [step, setStep] = useState(1); // 1 details, 2 contacts, 3 review
@@ -203,12 +204,10 @@ function StatBar({ label, value, total, color }) {
   const submit=async()=>{
     setSubmitting(true);
     setTimeout(async()=>{
-        const campaignResponse = await axios.post("http://localhost:3000/api/v1/campaigns/",{
+        const campaignResponse = await api.post("/campaigns/",{
           campaignName:name,
           templateId:templateId,
           contacts:contacts,
-        },{
-            withCredentials:true
         })
         if(campaignResponse.data.status == "success"){
           setCampaigns([...campaigns,campaignResponse.data.data.campaign])
