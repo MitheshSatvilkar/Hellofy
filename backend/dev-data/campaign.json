@@ -6,9 +6,9 @@
     "templateId": "66b200000000000000000001",
     "status": "Draft",
     "contacts": [
-      { "name": "Riya Shah", "phoneNo": "+919900000001" },
-      { "name": "Arjun Mehta", "phoneNo": "+919900000002" },
-      { "name": "Kiran Patel", "phoneNo": "+919900000003" }
+      { "name": "Riya Shah", "phone": "+919900000001" },
+      { "name": "Arjun Mehta", "phone": "+919900000002" },
+      { "name": "Kiran Patel", "phone": "+919900000003" }
     ],
     "analytics": { "totalContacts": 3 }
   },
@@ -19,8 +19,8 @@
     "templateId": "66b200000000000000000002",
     "status": "Draft",
     "contacts": [
-      { "name": "Nisha", "phoneNo": "+919900000004" },
-      { "name": "Rahul", "phoneNo": "+919900000005" }
+      { "name": "Nisha", "phone": "+919900000004" },
+      { "name": "Rahul", "phone": "+919900000005" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -32,9 +32,9 @@
     "templateId": "66b200000000000000000003",
     "status": "Draft",
     "contacts": [
-      { "name": "Pooja", "phoneNo": "+919900000006" },
-      { "name": "Vikas", "phoneNo": "+919900000007" },
-      { "name": "Ankit", "phoneNo": "+919900000008" }
+      { "name": "Pooja", "phone": "+919900000006" },
+      { "name": "Vikas", "phone": "+919900000007" },
+      { "name": "Ankit", "phone": "+919900000008" }
     ],
     "analytics": { "totalContacts": 3 }
   },
@@ -45,8 +45,8 @@
     "templateId": "66b200000000000000000004",
     "status": "Draft",
     "contacts": [
-      { "name": "Deepak", "phoneNo": "+919900000009" },
-      { "name": "Sonal", "phoneNo": "+919900000010" }
+      { "name": "Deepak", "phone": "+919900000009" },
+      { "name": "Sonal", "phone": "+919900000010" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -58,8 +58,8 @@
     "templateId": "66b200000000000000000005",
     "status": "Draft",
     "contacts": [
-      { "name": "Mohit", "phoneNo": "+919900000011" },
-      { "name": "Reena", "phoneNo": "+919900000012" }
+      { "name": "Mohit", "phone": "+919900000011" },
+      { "name": "Reena", "phone": "+919900000012" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -70,9 +70,9 @@
     "templateId": "66b200000000000000000006",
     "status": "Draft",
     "contacts": [
-      { "name": "Ashish", "phoneNo": "+919900000013" },
-      { "name": "Komal", "phoneNo": "+919900000014" },
-      { "name": "Tina", "phoneNo": "+919900000015" }
+      { "name": "Ashish", "phone": "+919900000013" },
+      { "name": "Komal", "phone": "+919900000014" },
+      { "name": "Tina", "phone": "+919900000015" }
     ],
     "analytics": { "totalContacts": 3 }
   },
@@ -84,8 +84,8 @@
     "templateId": "66b200000000000000000007",
     "status": "Draft",
     "contacts": [
-      { "name": "Amit", "phoneNo": "+919900000016" },
-      { "name": "Rakesh", "phoneNo": "+919900000017" }
+      { "name": "Amit", "phone": "+919900000016" },
+      { "name": "Rakesh", "phone": "+919900000017" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -96,9 +96,9 @@
     "templateId": "66b200000000000000000008",
     "status": "Draft",
     "contacts": [
-      { "name": "Sagar", "phoneNo": "+919900000018" },
-      { "name": "Harsh", "phoneNo": "+919900000019" },
-      { "name": "Jatin", "phoneNo": "+919900000020" }
+      { "name": "Sagar", "phone": "+919900000018" },
+      { "name": "Harsh", "phone": "+919900000019" },
+      { "name": "Jatin", "phone": "+919900000020" }
     ],
     "analytics": { "totalContacts": 3 }
   },
@@ -110,8 +110,8 @@
     "templateId": "66b200000000000000000009",
     "status": "Draft",
     "contacts": [
-      { "name": "Neeraj", "phoneNo": "+919900000021" },
-      { "name": "Shiv", "phoneNo": "+919900000022" }
+      { "name": "Neeraj", "phone": "+919900000021" },
+      { "name": "Shiv", "phone": "+919900000022" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -122,7 +122,7 @@
     "templateId": "66b20000000000000000000a",
     "status": "Draft",
     "contacts": [
-      { "name": "Priyansh", "phoneNo": "+919900000023" }
+      { "name": "Priyansh", "phone": "+919900000023" }
     ],
     "analytics": { "totalContacts": 1 }
   },
@@ -134,8 +134,8 @@
     "templateId": "66b200000000000000000001",
     "status": "Draft",
     "contacts": [
-      { "name": "Mehul", "phoneNo": "+919900000024" },
-      { "name": "Khushi", "phoneNo": "+919900000025" }
+      { "name": "Mehul", "phone": "+919900000024" },
+      { "name": "Khushi", "phone": "+919900000025" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -146,9 +146,9 @@
     "templateId": "66b200000000000000000004",
     "status": "Draft",
     "contacts": [
-      { "name": "Alok", "phoneNo": "+919900000026" },
-      { "name": "Rohan", "phoneNo": "+919900000027" },
-      { "name": "Snehal", "phoneNo": "+919900000028" }
+      { "name": "Alok", "phone": "+919900000026" },
+      { "name": "Rohan", "phone": "+919900000027" },
+      { "name": "Snehal", "phone": "+919900000028" }
     ],
     "analytics": { "totalContacts": 3 }
   },
@@ -160,8 +160,8 @@
     "templateId": "66b200000000000000000005",
     "status": "Draft",
     "contacts": [
-      { "name": "Nitin", "phoneNo": "+919900000029" },
-      { "name": "Bhavesh", "phoneNo": "+919900000030" }
+      { "name": "Nitin", "phone": "+919900000029" },
+      { "name": "Bhavesh", "phone": "+919900000030" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -172,8 +172,8 @@
     "templateId": "66b200000000000000000006",
     "status": "Draft",
     "contacts": [
-      { "name": "Kajal", "phoneNo": "+919900000031" },
-      { "name": "Divya", "phoneNo": "+919900000032" }
+      { "name": "Kajal", "phone": "+919900000031" },
+      { "name": "Divya", "phone": "+919900000032" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -185,8 +185,8 @@
     "templateId": "66b200000000000000000007",
     "status": "Draft",
     "contacts": [
-      { "name": "Raj", "phoneNo": "+919900000033" },
-      { "name": "Tarun", "phoneNo": "+919900000034" }
+      { "name": "Raj", "phone": "+919900000033" },
+      { "name": "Tarun", "phone": "+919900000034" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -197,7 +197,7 @@
     "templateId": "66b200000000000000000008",
     "status": "Draft",
     "contacts": [
-      { "name": "Yash", "phoneNo": "+919900000035" }
+      { "name": "Yash", "phone": "+919900000035" }
     ],
     "analytics": { "totalContacts": 1 }
   },
@@ -209,8 +209,8 @@
     "templateId": "66b200000000000000000009",
     "status": "Draft",
     "contacts": [
-      { "name": "Mansi", "phoneNo": "+919900000036" },
-      { "name": "Ayesha", "phoneNo": "+919900000037" }
+      { "name": "Mansi", "phone": "+919900000036" },
+      { "name": "Ayesha", "phone": "+919900000037" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -221,7 +221,7 @@
     "templateId": "66b20000000000000000000a",
     "status": "Draft",
     "contacts": [
-      { "name": "Pritam", "phoneNo": "+919900000038" }
+      { "name": "Pritam", "phone": "+919900000038" }
     ],
     "analytics": { "totalContacts": 1 }
   },
@@ -233,8 +233,8 @@
     "templateId": "66b200000000000000000001",
     "status": "Draft",
     "contacts": [
-      { "name": "Manoj", "phoneNo": "+919900000039" },
-      { "name": "Ravi", "phoneNo": "+919900000040" }
+      { "name": "Manoj", "phone": "+919900000039" },
+      { "name": "Ravi", "phone": "+919900000040" }
     ],
     "analytics": { "totalContacts": 2 }
   },
@@ -245,9 +245,9 @@
     "templateId": "66b200000000000000000003",
     "status": "Draft",
     "contacts": [
-      { "name": "Kishan", "phoneNo": "+919900000041" },
-      { "name": "Nirali", "phoneNo": "+919900000042" },
-      { "name": "Nilesh", "phoneNo": "+919900000043" }
+      { "name": "Kishan", "phone": "+919900000041" },
+      { "name": "Nirali", "phone": "+919900000042" },
+      { "name": "Nilesh", "phone": "+919900000043" }
     ],
     "analytics": { "totalContacts": 3 }
   }

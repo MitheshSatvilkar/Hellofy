@@ -8,7 +8,7 @@ const User = require('../models/userModel');
 
 dotenv.config({ path: './config.env' });
 
-mongoose.connect(process.env.DATABASE_LOCAL);
+mongoose.connect(process.env.DATABASE_MONGO.replace("<db_password>",process.env.MONGODB_PASS))
 
 // READ JSON FILE
 const template = JSON.parse(fs.readFileSync(`${__dirname}/template.json`, 'utf-8'));

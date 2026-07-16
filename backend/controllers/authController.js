@@ -17,10 +17,6 @@ const createSendToken = async(user, statusCode, req, res)=>{
         expiresIn: process.env.JWT_EXPIRES_IN
     })
 
-    console.log("createSendToken called");
-    console.log("NODE_ENV:", process.env.NODE_ENV);
-    console.log("Origin:", req.headers.origin);
-
     //Send JWT Token as Cookie
     res.cookie("jwt", token, {
         expires: new Date(
@@ -32,7 +28,6 @@ const createSendToken = async(user, statusCode, req, res)=>{
         sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
     });
 
-    console.log("Headers after cookie:", res.getHeaders());
 
     //Send User Details as Response
     res.status(statusCode).json({
@@ -129,6 +124,18 @@ exports.restrictTo = (...roles) => {
   };
 };
 
+exports.logout = catchAsync(async(req,res,next)=>{
+    res.clearCookie("jwt", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+    });
+
+    res.status(200).json({
+        status: "success",
+        message: "Logged out successfully"
+    });
+})
 
 
 

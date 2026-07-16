@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const DetailDrawer=({ campaign, template, onClose, onSend, sendingIds })=>{
     if (!campaign) return null;
-    const isSending = sendingIds.has(campaign.id);
+    const isSending = sendingIds.has(campaign._id);
     const a = campaign.analytics;
     const total = campaign.contacts.length;
     
@@ -67,7 +67,7 @@ const DetailDrawer=({ campaign, template, onClose, onSend, sendingIds })=>{
                 <div style={{ padding: '22px 24px 0', flexShrink: 0 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <div>
-                    <h2 style={{ margin: 0, fontSize: 18, fontWeight: 700 }}>{campaign.name}</h2>
+                    <h2 style={{ margin: 0, fontSize: 18, fontWeight: 700 }}>{campaign.campaignName}</h2>
                     <div style={{ marginTop: 8 }}><StatusPill status={campaign.status} /></div>
                     </div>
                     <button onClick={onClose} style={{ background: 'none', border: 'none', fontSize: 20, color: 'var(--ink-soft)' }}>×</button>
@@ -124,7 +124,7 @@ const DetailDrawer=({ campaign, template, onClose, onSend, sendingIds })=>{
 
                 {campaign.status === 'Draft' && (
                 <div style={{ padding: '16px 24px', borderTop: '1px solid var(--line)', flexShrink: 0 }}>
-                    <button onClick={() => onSend(campaign.id)} disabled={isSending} style={{ ...btnPrimary, width: '100%' }}>
+                    <button onClick={() => onSend(campaign._id)} disabled={isSending} style={{ ...btnPrimary, width: '100%' }}>
                     {isSending ? <><Spinner size={14} color="#fff" /> Sending…</> : 'Send campaign'}
                     </button>
                 </div>

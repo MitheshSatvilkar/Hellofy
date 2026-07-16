@@ -7,6 +7,7 @@ import CreateCampaignModal from "./CreateCampaignModal";
 import DetailDrawer from "./DetailDrawer";
 import ConfirmDialog from "./ConfirmDialog";
 
+
 import api from "../api/axios";
 
 import { useMemo } from "react";
@@ -66,6 +67,21 @@ const Dashboard = ()=>{
         }
 
     }
+    async function handleLogout(){
+        try{
+            const logout = await api.post("/users/logout",{});
+            if(logout.data.status == "success"){
+                alert(logout.data.message);  
+                navigate("/")
+            }
+            
+        }
+        catch(err){
+            console.log(err);
+        }
+        
+    }
+
     function useToasts() {
         const [toasts, setToasts] = useState([]);
         const push = useCallback((message, kind = 'info') => {
@@ -191,8 +207,8 @@ const Dashboard = ()=>{
             {/* Top bar */}
             <div className="flex flex-wrap items-center justify-between gap-3.5 mb-7">
                 <div className="flex items-center gap-3">
-                    <div className="flex items-center justify-center w-[38px] h-[38px] rounded-[50px] bg-[var(--ink)] text-white font-extrabold text-[15px]">
-                        {user?.name[0] || "H"}
+                    <div className="flex items-center justify-center w-[38px] h-[38px] rounded-full bg-[var(--ink)] text-white font-extrabold text-[15px]">
+                        {user?.name?.[0] || "H"}
                     </div>
 
                     <div>
@@ -205,12 +221,35 @@ const Dashboard = ()=>{
                     </div>
                 </div>
 
-                <button
-                    onClick={() => setShowCreate(true)}
-                    className="px-5 py-[11px] text-sm text-white rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors"
-                >
-                    + New campaign
-                </button>
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={() => setShowCreate(true)}
+                        className="px-5 py-[11px] text-sm text-white rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors"
+                    >
+                        + New campaign
+                    </button>
+
+                    <button
+                        onClick={handleLogout}
+                        className="w-11 h-11 flex items-center justify-center rounded-full bg-[var(--teal)] hover:opacity-90 text-white transition-all shadow-md"
+                        title="Logout"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-5 h-5"
+                        >
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                            <polyline points="16 17 21 12 16 7" />
+                            <line x1="21" y1="12" x2="9" y2="12" />
+                        </svg>
+                    </button>
+                </div>
             </div>
             
             {/* Summary Cards */}
